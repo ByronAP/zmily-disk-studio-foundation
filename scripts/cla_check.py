@@ -59,9 +59,9 @@ def positive_id(value: object) -> bool:
 def validate(policy: dict, registry: dict, agreement: bytes) -> None:
     require(isinstance(policy, dict) and set(policy) == {
         "schema_version", "status", "owner_name", "owner_github_id",
-        "agreement_version", "agreement_sha256", "review_reference",
+        "agreement_version", "agreement_sha256", "approval_reference",
     }, "Invalid CLA policy fields")
-    require(type(policy["schema_version"]) is int and policy["schema_version"] == 1,
+    require(type(policy["schema_version"]) is int and policy["schema_version"] == 2,
             "Unsupported CLA policy schema")
     require(policy["status"] in ("draft", "active"), "Invalid CLA policy status")
     require(isinstance(policy["owner_name"], str) and bool(policy["owner_name"].strip()),
@@ -75,10 +75,10 @@ def validate(policy: dict, registry: dict, agreement: bytes) -> None:
     if policy["status"] == "active":
         require("draft" not in policy["agreement_version"].lower()
                 and "DRAFT FOR LEGAL REVIEW" not in agreement.decode(), "Draft CLA cannot be activated")
-        require(isinstance(policy["review_reference"], str) and bool(policy["review_reference"].strip()),
-                "Legal review and owner approval reference required")
+        require(isinstance(policy["approval_reference"], str) and bool(policy["approval_reference"].strip()),
+                "Owner approval reference required")
     else:
-        require(policy["review_reference"] is None, "Draft policy must not claim approval")
+        require(policy["approval_reference"] is None, "Draft policy must not claim approval")
     require(isinstance(registry, dict) and set(registry) == {"schema_version", "acceptances", "provenance_reviews"},
             "Invalid acceptance registry fields")
     require(type(registry["schema_version"]) is int and registry["schema_version"] == 1,
@@ -133,7 +133,7 @@ def load(root: Path) -> tuple[dict, dict]:
 
 
 def evaluate(policy: dict, registry: dict, pr: dict, commits: list[dict]) -> None:
-    require(policy["status"] == "active", "CLA awaits legal review and owner approval")
+    require(policy["status"] == "active", "CLA awaits owner approval and activation")
     require(type(pr.get("commits")) is int and 0 < pr["commits"] <= 250,
             "PR commit count outside supported review limit")
     require(len(commits) == pr["commits"], "Incomplete PR commit inventory")
@@ -193,7 +193,7 @@ def check_pr(api: GitHub, number: int, root: Path) -> None:
     api.status(sha, "pending", "Checking trusted CLA policy and prior acceptances")
     try:
         policy, registry = load(root)
-        require(policy["status"] == "active", "CLA awaits legal review and owner approval")
+        require(policy["status"] == "active", "CLA awaits owner approval and activation")
         require(type(pr.get("commits")) is int and 0 < pr["commits"] <= 250,
                 "PR commit count outside supported review limit")
         commits = []

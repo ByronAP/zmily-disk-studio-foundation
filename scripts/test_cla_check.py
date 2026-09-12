@@ -17,10 +17,10 @@ class ClaTests(unittest.TestCase):
     def setUp(self):
         self.agreement = b"# Test agreement\nVersion: 1.0\nTest fixture only.\n"
         self.policy = {
-            "schema_version": 1, "status": "active", "owner_name": "Fixture owner",
+            "schema_version": 2, "status": "active", "owner_name": "Fixture owner",
             "owner_github_id": 1, "agreement_version": "1.0",
             "agreement_sha256": cla.agreement_digest(self.agreement),
-            "review_reference": "test-only-approval",
+            "approval_reference": "test-only-approval",
         }
         self.entry = {
             "github_id": 2, "agreement_version": "1.0",
@@ -112,15 +112,15 @@ class ClaTests(unittest.TestCase):
 
     def test_draft_blocks_even_owner(self):
         self.policy["status"] = "draft"
-        self.policy["review_reference"] = None
+        self.policy["approval_reference"] = None
         self.registry["acceptances"] = []
         self.pr["user"]["id"] = self.commits[0]["author"]["id"] = 1
-        with self.assertRaisesRegex(cla.Refusal, "awaits legal"):
+        with self.assertRaisesRegex(cla.Refusal, "awaits owner"):
             self.check()
 
     def test_draft_cannot_have_signatures(self):
         self.policy["status"] = "draft"
-        self.policy["review_reference"] = None
+        self.policy["approval_reference"] = None
         with self.assertRaisesRegex(cla.Refusal, "Cannot accept a draft"):
             self.check()
 
@@ -131,7 +131,7 @@ class ClaTests(unittest.TestCase):
             self.check()
 
     def test_approval_required(self):
-        self.policy["review_reference"] = None
+        self.policy["approval_reference"] = None
         with self.assertRaisesRegex(cla.Refusal, "approval reference"):
             self.check()
 
@@ -246,10 +246,20 @@ class ClaTests(unittest.TestCase):
             cla.check_pr(api, 1, cla.ROOT)
         self.assertEqual(api.pages, [1, 2, 3])
 
-    def test_shipped_configuration_is_not_activated(self):
+    def test_owner_approval_does_not_fabricate_contributor_acceptances(self):
         policy, registry = cla.load(cla.ROOT)
-        self.assertEqual(policy["status"], "draft")
-        self.assertEqual(registry["acceptances"], [])
+        self.assertEqual(policy["status"], "active")
+        self.assertEqual(policy["agreement_version"], "1.0")
+        self.assertEqual(policy["approval_reference"], "owner-approval-2026-09-11-cla-1.0")
+        unknown = max([policy["owner_github_id"]] + [row["github_id"] for row in registry["acceptances"]]) + 1
+        self.pr["user"]["id"] = self.commits[0]["author"]["id"] = unknown
+        with self.assertRaisesRegex(cla.Refusal, "lacks"):
+            cla.evaluate(policy, registry, self.pr, self.commits)
+
+    def test_legacy_review_field_is_not_treated_as_owner_approval(self):
+        self.policy["review_reference"] = self.policy.pop("approval_reference")
+        with self.assertRaisesRegex(cla.Refusal, "policy fields"):
+            self.check()
 
     def test_public_and_crate_gpl_texts_match(self):
         root = (cla.ROOT / "LICENSE").read_bytes().replace(b"\r\n", b"\n")

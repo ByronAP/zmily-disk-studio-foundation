@@ -28,8 +28,9 @@ GPL rights are not withdrawn by a sale or change of project ownership.
 
 The [contributor agreement](CLA.md) is a separate inbound grant intended to
 support both GPL and proprietary distribution, with transferable rights.
-Contributors retain their copyrights. It is currently a **draft for legal
-review**, not an agreement open for acceptance.
+Contributors retain their copyrights. Version 1.0 is approved by the project
+owner and open for maintainer-verified acceptance; no independent legal review
+is claimed. See [CONTRIBUTING.md](CONTRIBUTING.md) for signing and privacy details.
 
 ## Scope
 

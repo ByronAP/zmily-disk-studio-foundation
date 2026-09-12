@@ -1,13 +1,14 @@
 # Contributing to ZMILY Foundation
 
-**External contribution acceptance is not yet enabled.** The CLA is a draft
-for legal review. Do not sign the draft or post personal legal information in
-issues or pull requests. Code reuse under the public GPL does not require a
-CLA; the CLA is required only for accepting work into this dual-licensed project.
+**CLA version 1.0 is open for maintainer-verified acceptance.** Do not post
+personal legal information in issues or pull requests. Code reuse under the
+public GPL does not require a CLA; the CLA is required only for accepting work
+into this dual-licensed project. Project-owner approval is recorded; no
+independent legal review is claimed.
 
 ## One acceptance, not one signature per commit
 
-Once enabled, read the final [CLA](CLA.md) and complete the maintainer-provided
+Read the [CLA](CLA.md) and complete the maintainer-provided
 private signing process before your first merge. It covers your intentionally
 submitted current and future contributions in the signed capacity, including
 proprietary sublicensing and transfer of the Project without re-signing.
@@ -18,8 +19,25 @@ acceptance evidence privately, and record an opaque acceptance entry in
 `.github/cla/acceptances.json` on the trusted default branch. The PR check reuses
 that acceptance for subsequent submissions. There is no comment-based automatic
 signing, no per-commit CLA signature, and no public storage of legal signatures.
-Contact the project maintainer to arrange signing after the process is enabled;
-the final privacy notice and signing contact are publication prerequisites.
+To start, open a [CLA signing request](https://github.com/ByronAP/zmily-foundation/issues/new?title=CLA%20signing%20request)
+addressed to `@ByronAP`, containing only your GitHub handle and a request for a
+private signing channel. Allen Byron Penner will arrange that channel before
+you send personal information. An issue or PR comment alone is not acceptance.
+
+The private acceptance must include your legal name, your GitHub account, the
+rights holder and individual/entity capacity, the exact version and digest
+from `.github/cla/policy.json`, and a dated signature or equivalent recorded
+electronic assent. For an entity, identify its authorized representative and
+authority. Include this statement with those identifying details:
+
+> I have read and accept the ZMILY Contributor License Agreement version 1.0
+> identified by the accompanying SHA-256 digest, including its proprietary
+> sublicensing and project-transfer permissions. I have authority to grant
+> those rights in the capacity identified in this acceptance.
+
+Do not submit a generic Signed-off-by as that evidence. Maintainers verify the
+account linkage and authority before adding the acceptance record. This is a
+manual process; no hosted e-signature provider is configured.
 
 If an employer or another entity owns your work, its authorized representative
 must provide the necessary grant. Tell maintainers about any change of rights
@@ -56,3 +74,27 @@ product. Maintainers review accepted public patches, including their signing
 evidence, before importing them into the private product. Project transfers
 must preserve the acceptance archive, policy history and assignment evidence,
 not merely move the GitHub repository.
+
+## Signing privacy and record retention
+
+Allen Byron Penner, operating ZMILY, administers signing records. The purpose
+is to verify contribution authority, maintain evidence of the license grants,
+and support licensing, compliance and project transfers. Provide only the
+identity, account, capacity and assent information needed for those purposes;
+do not send government ID, a home address or unrelated sensitive information.
+
+Full acceptance evidence is kept privately with access limited to authorized
+maintainers and advisers who need it for these purposes. It may transfer to a
+project successor with the associated obligations. Public records expose your
+GitHub numeric ID, agreement version/digest, acceptance date, signing capacity,
+review/status flags and an opaque evidence reference, not the signed document.
+GitHub account IDs are publicly linkable; Git history and forks may retain
+public records even after a later edit or removal.
+
+Evidence is retained while the Project relies on the grant and as reasonably
+needed to establish or defend the associated rights or meet legal obligations;
+deleting a signing-request issue is not a way to withdraw a granted license.
+Ask the steward through the same contact route to arrange private access,
+correction or deletion requests. Requests will be considered subject to
+applicable law and legitimate recordkeeping needs. No contributor evidence is
+collected by the CI check itself.

@@ -1,10 +1,10 @@
 # ZMILY Contributor License Agreement
 
-Version: 1.0-draft.1
+Version: 1.0
 
-**DRAFT FOR LEGAL REVIEW - NOT OPEN FOR ACCEPTANCE.** No signature or grant is
-solicited under this draft. Its proposed operative terms follow. They must be
-reviewed, finalized and enabled before contributions are accepted upstream.
+Approved for use by the Project Steward on 2026-09-11. This is the agreement
+offered to contributors; approval by the Steward is not a contributor's
+acceptance and does not represent independent legal review.
 
 ## 1. Parties and scope
 
@@ -61,8 +61,7 @@ by those Contributions or that combination, not unrelated patents.
 The patent grant is irrevocable except that, to the extent permitted by law,
 the patent license of a recipient who brings a patent claim alleging that
 Your Contribution or that combination infringes a patent terminates when the
-claim is filed. Legal review must confirm this provision's interaction with
-the public GPL grant and the intended proprietary licensing terms.
+claim is filed.
 
 ## 4. Authority and third-party material
 
@@ -116,24 +115,13 @@ An entity acceptance must identify its authorized representative. The record
 must explicitly state agreement to the proprietary sublicensing and transfer
 permissions, not merely certify code provenance or add a Git Signed-off-by.
 
-The approved acceptance process will retain durable evidence of assent and
+The acceptance process retains durable evidence of assent and
 link it to a verified GitHub account. Private signature documents, legal names,
 addresses and employer evidence must not be placed in public PR comments or
 the public repository. Public automation receives only the account ID, scope,
-version/digest, acceptance date and an opaque evidence reference. Contributors
-must receive a privacy/retention notice before that process is activated.
+version/digest, acceptance date and an opaque evidence reference. The signing
+instructions and privacy/retention notice are in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 A changed agreement must receive a new version and acceptance as required for
 future submissions; it cannot silently rewrite an earlier acceptance. A
 Project transfer complying with section 5 is not such a change.
-
-## Draft completion checklist (not operative terms)
-
-Before enabling acceptance, obtain legal review of this draft, including its
-copyright/patent grants, assignment and sublicensing language, entity/employer
-authority, mandatory-law limits, electronic acceptance, privacy/retention,
-disputes/governing law and the relationship to the public GPL. Confirm code
-provenance and the Steward's existing rights. Replace this draft with a
-versioned final agreement, preserve the reviewed text, and record the review
-and owner approval in the contribution policy. Do not claim this draft has
-been reviewed or that a software check establishes legal enforceability.

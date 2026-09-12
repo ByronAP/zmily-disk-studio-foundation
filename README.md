@@ -41,8 +41,8 @@ respective owners' copyrights.
 
 This repository publishes the independently buildable foundation source, not
 product binaries or private product history. See [third-party dependency
-information](THIRD_PARTY.md). The one-time [CLA](CLA.md) is a draft for legal
-review; external contribution
-acceptance is disabled until review and owner approval are recorded. See
-[CONTRIBUTING.md](CONTRIBUTING.md). Signing/privacy arrangements must also be
-finalized before accepting external contributions.
+information](THIRD_PARTY.md). The one-time [CLA](CLA.md), version 1.0, is approved
+by the project owner and open for maintainer-verified acceptance. Contributors
+must complete the [private signing process](CONTRIBUTING.md) before merging;
+owner approval does not sign the agreement for anyone else or represent
+independent legal review.

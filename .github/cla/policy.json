@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
-  "status": "draft",
+  "schema_version": 2,
+  "status": "active",
   "owner_name": "Allen Byron Penner",
   "owner_github_id": 7310089,
-  "agreement_version": "1.0-draft.1",
-  "agreement_sha256": "4ece2dd6ac6a86cd2bb962089d1e527a74b6e6e0b02b01ad27e548ad59a0f5a6",
-  "review_reference": null
+  "agreement_version": "1.0",
+  "agreement_sha256": "16c4b606cdf95b5000578941dee504d2ae953822c58275c8899a9c3bf3b8b110",
+  "approval_reference": "owner-approval-2026-09-11-cla-1.0"
 }
