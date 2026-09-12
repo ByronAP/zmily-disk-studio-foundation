@@ -1,6 +1,6 @@
-# ZMILY Foundation
+# ZMILY Disk Studio Foundation
 
-Reusable Rust storage and file-format primitives shared with the ZMILY product.
+Reusable Rust storage and file-format primitives shared with ZMILY Disk Studio.
 This source tree contains the foundation library, not a complete partition
 manager or the commercial product's Free edition.
 
@@ -32,7 +32,12 @@ with no physical storage access.
 The private product consumes this same library. Shared contributions are
 reviewed and integrated there, then included in subsequent source snapshots.
 
+The public repository is [ZMILY Disk Studio Foundation](https://github.com/ByronAP/zmily-disk-studio-foundation).
+
 ## Publication status
+
+The project was previously named ZMILY Foundation. The version 1.0 [CLA](CLA.md)
+retains that name and explicitly includes renamed continuations.
 
 The public source is licensed under **GPL-3.0-only**; see [LICENSE](LICENSE)
 and [LICENSING.md](LICENSING.md) for scope and separate proprietary licensing.

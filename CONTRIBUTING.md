@@ -1,4 +1,4 @@
-# Contributing to ZMILY Foundation
+# Contributing to ZMILY Disk Studio Foundation
 
 **CLA version 1.0 is open for maintainer-verified acceptance.** Do not post
 personal legal information in issues or pull requests. Code reuse under the
@@ -19,7 +19,7 @@ acceptance evidence privately, and record an opaque acceptance entry in
 `.github/cla/acceptances.json` on the trusted default branch. The PR check reuses
 that acceptance for subsequent submissions. There is no comment-based automatic
 signing, no per-commit CLA signature, and no public storage of legal signatures.
-To start, open a [CLA signing request](https://github.com/ByronAP/zmily-foundation/issues/new?title=CLA%20signing%20request)
+To start, open a [CLA signing request](https://github.com/ByronAP/zmily-disk-studio-foundation/issues/new?title=CLA%20signing%20request)
 addressed to `@ByronAP`, containing only your GitHub handle and a request for a
 private signing channel. Allen Byron Penner will arrange that channel before
 you send personal information. An issue or PR comment alone is not acceptance.

@@ -1,11 +1,11 @@
 [package]
-name = "zmily-foundation"
+name = "zmily-disk-studio-foundation"
 version.workspace = true
 edition = "2024"
 rust-version.workspace = true
 description = "Reusable storage and file-format primitives without product workflows or device access"
 license = "GPL-3.0-only"
-repository = "https://github.com/ByronAP/zmily-foundation"
+repository = "https://github.com/ByronAP/zmily-disk-studio-foundation"
 publish = false
 
 [features]

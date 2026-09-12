@@ -1,6 +1,6 @@
 # Third-party dependencies
 
-This repository distributes ZMILY Foundation source and a Cargo lockfile. It
+This repository distributes ZMILY Disk Studio Foundation source and a Cargo lockfile. It
 does not vendor dependency source, distribute compiled binaries or include
 Microsoft ADK/WinPE files. Cargo obtains dependencies separately from the
 registry. Each dependency retains its own copyright and license; the project's

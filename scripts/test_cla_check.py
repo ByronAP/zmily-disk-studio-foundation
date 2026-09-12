@@ -265,14 +265,14 @@ class ClaTests(unittest.TestCase):
         root = (cla.ROOT / "LICENSE").read_bytes().replace(b"\r\n", b"\n")
         workspace = cla.ROOT
         # The private source keeps the crate outside its public templates.
-        if not (workspace / "crates/zmily-foundation").exists():
+        if not (workspace / "crates/zmily-disk-studio-foundation").exists():
             workspace = cla.ROOT.parents[1]
             self.assertTrue((workspace / "publication/public-source.json").is_file())
-        library = (workspace / "crates/zmily-foundation/LICENSE").read_bytes().replace(b"\r\n", b"\n")
+        library = (workspace / "crates/zmily-disk-studio-foundation/LICENSE").read_bytes().replace(b"\r\n", b"\n")
         self.assertEqual(root, library)
         self.assertTrue(root.startswith(b"GNU GENERAL PUBLIC LICENSE\nVersion 3, 29 June 2007"))
         self.assertIn(b"END OF TERMS AND CONDITIONS", root)
-        manifest = tomllib.loads((workspace / "crates/zmily-foundation/Cargo.toml").read_text())
+        manifest = tomllib.loads((workspace / "crates/zmily-disk-studio-foundation/Cargo.toml").read_text())
         self.assertEqual(manifest["package"]["license"], "GPL-3.0-only")
 
     def test_privileged_workflow_never_checks_out_pr_code(self):

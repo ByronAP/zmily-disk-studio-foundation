@@ -1,4 +1,4 @@
-# ZMILY Foundation licensing
+# ZMILY Disk Studio Foundation licensing
 
 Copyright (C) 2026 Allen Byron Penner, and contributors for their respective
 contributions. Third-party materials retain their own copyright and terms.
@@ -6,7 +6,7 @@ contributions. Third-party materials retain their own copyright and terms.
 The original source, tests, build scripts and documentation in this standalone
 repository are offered under **GNU GPL version 3 only** (`GPL-3.0-only`), except
 where a file expressly states otherwise. See [LICENSE](LICENSE). The library
-also carries the same license in `crates/zmily-foundation/LICENSE`.
+also carries the same license in `crates/zmily-disk-studio-foundation/LICENSE`.
 
 This software is provided without warranty, including any implied warranty of
 merchantability or fitness for a particular purpose, as detailed in the GPL.
