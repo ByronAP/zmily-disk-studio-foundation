@@ -1,0 +1,28 @@
+name: Foundation
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Check contribution policy and gate regressions
+        run: |
+          python scripts/cla_check.py --check-config
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python -B scripts/test_cla_check.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Report pinned Rust toolchain
+        run: rustup show active-toolchain
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+      - name: Lint
+        run: cargo clippy --workspace --all-targets --all-features --locked -- -D warnings
+      - name: Test default library
+        run: cargo test --workspace --locked
+      - name: Test consumer fixtures
+        run: cargo test --workspace --all-features --locked
